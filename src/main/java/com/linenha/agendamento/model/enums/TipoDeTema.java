@@ -1,4 +1,4 @@
-package com.linenha.agendamento.model.entity;
+package com.linenha.agendamento.model.enums;
 
 public enum TipoDeTema {
 	
