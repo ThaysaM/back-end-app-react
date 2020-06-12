@@ -1,6 +1,7 @@
 package com.linenha.agendamento.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.linenha.agendamento.model.entity.Agendamento;
 import com.linenha.agendamento.model.enums.StatusAgendamento;
@@ -18,4 +19,6 @@ public interface AgendamentoService {
 	void atualizarStatus(Agendamento agendamento, StatusAgendamento status);
 	
 	void validar(Agendamento agendamento);
+	
+	Optional<Agendamento> obterPoId(Long id);
 }

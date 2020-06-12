@@ -2,6 +2,7 @@ package com.linenha.agendamento.service.implement;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import javax.persistence.Column;
 
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.linenha.agendamento.model.entity.Agendamento;
+import com.linenha.agendamento.model.entity.Login;
 import com.linenha.agendamento.model.enums.StatusAgendamento;
 import com.linenha.agendamento.model.repository.AgendamentoRepository;
 import com.linenha.agendamento.service.AgendamentoService;
@@ -109,9 +111,17 @@ public class AgendamentoServiceImplemente implements AgendamentoService{
 		}
 		
 		if(agendamento.getAno() == null || agendamento.getAno().toString().length() != 4){
-			throw new RegraNegocioException("Informe um Ano valida.");	
+			throw new RegraNegocioException("Informe um Ano valido.");	
 		}
 		
+		if(agendamento.getDia() == null || agendamento.getDia() < 1 || agendamento.getDia() > 31){
+			throw new RegraNegocioException("Informe um Dia valido.");	
+		}
+	}
+
+	@Override
+	public Optional<Agendamento> obterPoId(Long id) {
+		return repository.findById(id);
 	}
 	
 }

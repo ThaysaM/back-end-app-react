@@ -16,15 +16,14 @@ import com.linenha.agendamento.service.exceptions.ErroDeAutenticacao;
 import com.linenha.agendamento.service.exceptions.RegraNegocioException;
 import com.linenha.agendamento.service.implement.LoginServiceImplement;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
-@RequestMapping("/api/login")
+@RequestMapping("/api/logins")
+@RequiredArgsConstructor
 public class LoginResource {
 	
-	private LoginService service;
-	
-	public LoginResource(LoginService service) {
-		this.service = service;
-	}
+	private final LoginService service;
 	
 	@PostMapping("/autenticar")
 	public ResponseEntity autenticar(@RequestBody LoginDTO dto) {

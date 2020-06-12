@@ -50,5 +50,10 @@ public class LoginServiceImplement implements LoginService {
 			throw new RegraNegocioException("Ja existe um usuario cadastrado com este email.");
 		}
 	}
+
+	@Override
+	public Optional<Login> obterPorId(Long id) {
+		return repository.findById(id);
+	}
 	
 }
