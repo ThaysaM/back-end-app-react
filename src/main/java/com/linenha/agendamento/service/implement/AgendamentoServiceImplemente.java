@@ -98,7 +98,7 @@ public class AgendamentoServiceImplemente implements AgendamentoService{
 			throw new RegraNegocioException("Informe um Tema valido.");	
 		}
 		
-		if(agendamento.getLogin() == null){
+		if(agendamento.getLogin() == null || agendamento.getLogin().getId() == 0l){
 			throw new RegraNegocioException("Informe um Login.");	
 		}
 		
