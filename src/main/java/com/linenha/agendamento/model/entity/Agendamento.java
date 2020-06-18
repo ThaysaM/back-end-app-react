@@ -84,7 +84,7 @@ public class Agendamento {
 	
 	@Column(name = "hora_agendada")
 	private String hora_agendada;
-	
+
 	@Column(name = "dia")
 	private Integer dia;
 	

@@ -62,6 +62,15 @@ public class AgendamentoResource {
 		return ResponseEntity.ok(agendamentos);
 	}
 	
+	@GetMapping("{id}")
+	public ResponseEntity obterAgendamento(@PathVariable("id") Long id) {
+		return service.obterPoId(id)
+				.map(agendamento -> new ResponseEntity(converter(agendamento), HttpStatus.OK))
+				.orElseGet( () -> new ResponseEntity(HttpStatus.NOT_FOUND));
+	}
+	
+	
+	
 	@PostMapping
 	public ResponseEntity salvar (@RequestBody AgendamentoDTO dto) {
 		
@@ -116,6 +125,26 @@ public class AgendamentoResource {
 			new ResponseEntity("Agendamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST));
 	}
 	
+	private AgendamentoDTO converter(Agendamento agendamento) {
+		return AgendamentoDTO.builder()
+							.id(agendamento.getId())
+							.nomeDaMae(agendamento.getNomeDaMae())
+							.telefone(agendamento.getTelefone())
+							.nomeDaCrianca(agendamento.getNomeDaCrianca())
+							.idadeDaCrianca(agendamento.getIdadeDaCrianca())
+							.sexoDaCrianca(agendamento.getSexoDaCrianca().name())
+							.tipoDaSessao(agendamento.getTipoDaSessao().name())
+							.tema(agendamento.getTema().name())
+							.login(agendamento.getLogin().getId())
+							.status(agendamento.getStatus().name())
+							.hora_agendada(agendamento.getHora_agendada())
+							.dia(agendamento.getDia())
+							.mes(agendamento.getMes())
+							.ano(agendamento.getAno())
+							.build();
+							
+							
+	}
 	
 	private Agendamento converter(AgendamentoDTO dto) {
 		Agendamento agendamento = new Agendamento();

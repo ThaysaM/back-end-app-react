@@ -1,16 +1,16 @@
 package com.linenha.agendamento.api.dto;
 
-import com.linenha.agendamento.model.entity.Login;
-import com.linenha.agendamento.model.enums.StatusAgendamento;
-import com.linenha.agendamento.model.enums.TipoDaSessao;
-import com.linenha.agendamento.model.enums.TipoDeTema;
-import com.linenha.agendamento.model.enums.TipoDoSexo;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class AgendamentoDTO {
 	
 	private Long id;

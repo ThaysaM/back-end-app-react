@@ -79,7 +79,7 @@ public class AgendamentoServiceImplemente implements AgendamentoService{
 		}
 		
 		if(agendamento.getNomeDaCrianca() == null || agendamento.getNomeDaCrianca().trim().equals("")){
-			throw new RegraNegocioException("Informe um Nome valido.");	
+			throw new RegraNegocioException("Informe um Nome valido!");	
 		}
 		
 		if(agendamento.getIdadeDaCrianca() == null || agendamento.getIdadeDaCrianca() < 1 || agendamento.getIdadeDaCrianca() > 10){
