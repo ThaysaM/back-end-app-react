@@ -49,7 +49,7 @@ public class LoginRepositoryTest {
 		//cenario
 		
 		//acao
-		boolean result = repository.existsByEmail("thaysa@gmail.com");
+		boolean result = repository.existsByEmail("thaysa@gmail.com.br");
 	
 		//verificacao
 		Assertions.assertThat(result).isFalse();
@@ -71,10 +71,10 @@ public class LoginRepositoryTest {
 	public void deveBuscarUmLoginPorEmail() {
 		//cenario
 		Login login = criarLogin();
-		entityManager.persist(login);
+		//entityManager.persist(login);
 		
 		//verificacao
-		Optional<Login> result = repository.findByEmail("thaysa@gmail.com");
+		Optional<Login> result = repository.findByEmail("usuario@email.com");
 	
 		Assertions.assertThat(result.isPresent() ).isTrue();
 	}
@@ -82,7 +82,7 @@ public class LoginRepositoryTest {
 	@Test
 	public void deveRetornarVazioAoBuscarLoginPorEmailQuandoNaoExistirNaBase() {
 		//verificacao
-		Optional<Login> result = repository.findByEmail("thaysa@gmail.com");
+		Optional<Login> result = repository.findByEmail("thaysa@gmail.com.br");
 	
 		Assertions.assertThat(result.isPresent() ).isFalse();
 	}
